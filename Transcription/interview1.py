@@ -107,7 +107,7 @@ for item in data:
 
 # Skapa DataFrame och spara till CSV
 df = pd.DataFrame(rows)
-df.to_csv("interview1_keywords.csv", index=False)
+df.to_csv("interview_1.csv", index=False)
 
 # Visa resultatet
 print(df)

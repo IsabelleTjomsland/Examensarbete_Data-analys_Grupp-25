@@ -139,7 +139,7 @@ for item in data:
 
 # Skapa DataFrame och spara till CSV
 df = pd.DataFrame(rows)
-df.to_csv("interview_with_ibm_keywords.csv", index=False)
+df.to_csv("interview_2.csv", index=False)
 
 # Visa resultatet
 print(df)

@@ -122,7 +122,7 @@ for q, a in interview_qna:
 
 # Skapa DataFrame och spara som CSV
 df = pd.DataFrame(rows)
-df.to_csv("interview_4_full_with_categories.csv", index=False)
+df.to_csv("interview_4.csv", index=False)
 
 # Terminalvisning med förkortat svar
 print("\nFörhandsvisning av kodade intervjusvar:\n")
@@ -133,4 +133,4 @@ for row in rows:
     print(f"Kod: {row['Kod']}")
     print("-" * 80)
 
-print("\nFil skapad: interview_4_full_with_categories.csv")
+print("\nFil skapad: interview_4.csv")

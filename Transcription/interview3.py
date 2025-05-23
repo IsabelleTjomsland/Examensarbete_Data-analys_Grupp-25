@@ -159,4 +159,4 @@ for row in rows:
     print(f"Kod: {row['Kod']}")
     print("-" * 80)
 
-print("\nFil skapad: interview_3_full_with_categories.csv")
+print("\nFil skapad: interview_3.csv")
