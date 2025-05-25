@@ -1,7 +1,7 @@
 from collections import Counter
 import matplotlib.pyplot as plt
 
-# Råa svar (förenklade exempel)
+
 responses_raw = [
     "TV",
     "TV, Streaming platforms (e.g. YouTube, DAZN, etc.), Social media (e.g. Instagram, X/Twitter, TikTok), Sports apps (e.g. ESPN, Bleacher Report)",
