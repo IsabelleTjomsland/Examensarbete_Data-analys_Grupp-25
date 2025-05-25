@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from collections import Counter
 
-# Justerad lista i önskad ordning
+# Fördefinierad ordning på AI-funktionerna
 ai_features_ordered = [
     "Personalized match recommendations",
     "AI-generated highlights based on your interests",
@@ -12,7 +12,7 @@ ai_features_ordered = [
     "Other"
 ]
 
-# Råa fritextsvar
+# Råa fritextsvar från enkäten
 responses_raw = [
     "Personalized match recommendations",
     "AI-generated highlights based on your interests, Real-time analysis of players and teams",
@@ -65,36 +65,36 @@ responses_raw = [
     "AI-generated highlights based on your interests, AI commentator tailored to your knowledge level (beginner/expert)"
 ]
 
-# Räkna svar
+# Räkna hur ofta varje funktion nämns
 counter = Counter()
 for response in responses_raw:
     for feature in ai_features_ordered:
         if feature in response:
             counter[feature] += 1
 
-# Hämta värden i rätt ordning
-responses = [counter[feature] for feature in ai_features_ordered]
+# Skapa listor i rätt ordning
+responses_count = [counter[feature] for feature in ai_features_ordered]
 unique_respondents = 49
-percentages = [(r / unique_respondents) * 100 for r in responses]
+percentages = [(count / unique_respondents) * 100 for count in responses_count]
 
-# Skapa diagram
+# Rita diagrammet
 plt.figure(figsize=(10, 8))
-bars = plt.barh(ai_features_ordered, responses, color='skyblue')
+bars = plt.barh(ai_features_ordered, responses_count, color='#87CEEB')  # ljusblå färg
+
+# Etiketter och titel
 plt.xlabel('Antal användare')
 plt.title('Which AI feature is your favourite or the most useful to you?', pad=10)
+plt.figtext(0.545, 0.93, f'{unique_respondents} svar', ha='center', va='center', fontsize=12, color='grey')
 
-# Text ovanför
-plt.figtext(0.545, 0.93, '49 svar', ha='center', va='center', fontsize=12, color='grey')
-
-# Vänd y-axeln
+# Vänd y-axeln så den mest populära hamnar högst upp
 plt.gca().invert_yaxis()
 
-# Lägg till text till höger om staplarna
-for bar, count, percent in zip(bars, responses, percentages):
+# Lägg till siffror till höger om varje stapel
+for bar, count, percent in zip(bars, responses_count, percentages):
     plt.text(bar.get_width() + 0.3, bar.get_y() + bar.get_height() / 2,
              f'{count} ({percent:.1f}%)', va='center', ha='left')
 
-# L-formade axlar
+# Visa endast vänster och nedre axellinje
 ax = plt.gca()
 ax.spines['left'].set_linewidth(1.5)
 ax.spines['bottom'].set_linewidth(1.5)
